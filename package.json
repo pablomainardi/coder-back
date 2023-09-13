@@ -27,6 +27,7 @@
     "escape-html": "^1.0.3",
     "etag": "^1.8.1",
     "express": "^4.18.2",
+    "express-handlebars": "^7.1.2",
     "finalhandler": "^1.2.0",
     "forwarded": "^0.2.0",
     "fresh": "^0.5.2",
@@ -46,6 +47,7 @@
     "mime-db": "^1.52.0",
     "mime-types": "^2.1.35",
     "ms": "^2.0.0",
+    "multer": "^1.4.5-lts.1",
     "negotiator": "^0.6.3",
     "object-inspect": "^1.12.3",
     "on-finished": "^2.4.1",
@@ -68,6 +70,5 @@
     "utils-merge": "^1.0.1",
     "vary": "^1.1.2"
   },
-  "devDependencies": {},
   "description": ""
 }
