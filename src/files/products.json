@@ -1,47 +1,90 @@
 [
 	{
 		"id": 1,
-		"title": "ejemplo1",
-		"description": "ejemp1",
-		"price": 100,
-		"thumbnail": "eje1",
-		"code": 110,
-		"stock": 1
+		"title": "producto1",
+		"description": "aaaa2",
+		"code": "prod1",
+		"price": 2,
+		"status": true,
+		"stock": 4,
+		"category": "magia",
+		"thumbnails": "fot888888os"
 	},
 	{
 		"id": 2,
-		"title": "ejemplo2",
-		"description": "ejemp2",
-		"price": 200,
-		"thumbnail": "eje2",
-		"code": 220,
-		"stock": 2
+		"title": "zapatos",
+		"description": "negros",
+		"code": 102,
+		"price": 300,
+		"status": true,
+		"stock": 1,
+		"category": "vestir",
+		"thumbnails": "imagen a poner"
 	},
 	{
 		"id": 3,
-		"title": "ejemplo3",
-		"description": "ejemp3",
-		"price": 300,
-		"thumbnail": "eje3",
-		"code": 330,
-		"stock": 3
+		"title": "medias",
+		"description": "blancas",
+		"code": 103,
+		"price": 200,
+		"status": true,
+		"stock": 1,
+		"category": "deportes",
+		"thumbnails": "imagen a poner"
 	},
 	{
 		"id": 4,
-		"title": "ejemplo4",
-		"description": "ejemp4",
-		"price": 400,
-		"thumbnail": "eje4",
-		"code": 440,
-		"stock": 4
+		"title": "Zapatillas",
+		"description": "blancas",
+		"code": 104,
+		"price": 200,
+		"status": true,
+		"stock": 1,
+		"category": "deportes",
+		"thumbnails": "imagen a poner"
 	},
 	{
 		"id": 5,
-		"title": "ejemplo5",
-		"description": "ejemp5",
-		"price": 500,
-		"thumbnail": "eje5",
-		"code": 550,
-		"stock": 5
+		"title": "a8888888888aa",
+		"description": "aaaa2",
+		"code": "aaaa888888",
+		"price": 2,
+		"status": true,
+		"stock": 4,
+		"category": "futbol",
+		"thumbnails": "fot888888os"
+	},
+	{
+		"id": 6,
+		"title": "carpas",
+		"description": "blancas",
+		"code": 106,
+		"price": 200,
+		"status": true,
+		"stock": 12,
+		"category": 12,
+		"thumbnails": []
+	},
+	{
+		"id": 7,
+		"title": "carpas",
+		"description": "blancas",
+		"code": 107,
+		"price": 200,
+		"status": true,
+		"stock": 12,
+		"category": 12,
+		"thumbnails": "cazaa"
+	},
+	{
+		"id": 8,
+		"title": "aaa",
+		"description": "aaaa2",
+		"code": "aaaa3",
+		"price": 2,
+		"status": true,
+		"stock": 4,
+		"category": "futbol",
+		"thumbnails": "fotos"
 	}
 ]
