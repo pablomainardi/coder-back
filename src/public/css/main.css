@@ -1,0 +1,23 @@
+body {
+  background-color: lightblue;
+  text-align: center;
+}
+
+.navMain {
+  font-weight: bold;
+  text-align: start;
+  margin: 0 auto;
+}
+
+.navMain a {
+  margin: 5px 20px;
+  border: 2px solid black;
+  background-color: #78f;
+  font-size: 28px;
+  text-decoration: none;
+  padding: 7px;
+}
+
+.lineHr {
+  margin: 20px;
+}

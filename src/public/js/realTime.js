@@ -13,7 +13,6 @@ formAddProd.addEventListener("submit", (e) => {
   for (const [key, value] of dataForm.entries()) {
     jsonData[key] = value;
   }
-  console.log(jsonData);
   // Enviamos data del producto a agregar al servidor
   socketClient.emit("addProd", jsonData);
   // Para resetear el formulario al enviar
@@ -27,7 +26,7 @@ socketClient.on("productsAll", (allProd) => {
   allProd.map((p) => {
     prodListHtml += `<div class="items">
     <div id="title" class="line1">${p.title}</div>
-    <div class="line2">${p.thumbnails}</div>
+    <div class="imgThumb"><img src="${p.thumbnails}"></div>
     <div class="line1">${p.description}</div>
     <div class="line2">$ ${p.price}</div>
     <div class="line1">Categoria: ${p.category}</div>
@@ -43,7 +42,7 @@ formDelProd.addEventListener("submit", (e) => {
   e.preventDefault();
   const dataForm = new FormData(formDelProd);
   const idNumber = dataForm.get("id");
-  console.log(typeof idNumber);
+  // console.log(typeof idNumber);
   // const jsonData = {};
   // for (const [key, value] of dataForm.entries()) {
   //   jsonData[key] = value;

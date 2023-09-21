@@ -1,6 +1,6 @@
 .listadoProductos {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
   flex-wrap: wrap;
   text-align: center;
@@ -13,17 +13,30 @@
   border-width: 2px;
   padding: 10px;
   margin: 10px;
+  border-radius: 5%;
+  background-color: #99f;
 }
 
-.line1 {
-  background-color: #777;
-}
+/* .line1 {
+  background-color: #99f;
+} */
 
 .line2 {
-  background-color: #bbb;
+  background-color: #77f;
 }
 
 #title {
   font: 600;
   font-size: 22px;
+  margin: 7px auto;
+  font-weight: bold;
+}
+
+.imgThumb {
+  margin: 7px auto;
+}
+
+.imgThumb img {
+  width: 150px;
+  border-radius: 7px;
 }

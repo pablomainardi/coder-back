@@ -1,4 +1,4 @@
-<link rel="stylesheet" href="/css/realTime.css" />
+<link rel="stylesheet" href="/css/home.css" />
 <h1>PRODUCTOS EN TIEMPO REAL</h1>
 <div>
   <div>
@@ -11,11 +11,7 @@
       {{! <input type="text" value="true" name="status" /> }}
       <input type="number" placeholder="Stock" name="stock" />
       <input type="text" placeholder="Categoria" name="category" />
-      <input
-        type="text"
-        placeholder="Imagen en texto a corregir"
-        name="thumbnails"
-      />
+      <input type="text" placeholder="Url de la imagen" name="thumbnails" />
       <button type="submit">Agregar</button>
     </form>
   </div>
@@ -32,7 +28,7 @@
   </div>
 </div>
 <hr />
-<div class="listadoReal" id="prodListRealTime"></div>
+<div class="listadoProductos" id="prodListRealTime"></div>
 
 <script src="socket.io/socket.io.js"></script>
 <script src="js/realTime.js"></script>

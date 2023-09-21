@@ -1,5 +1,3 @@
-console.log("Archivo JS para HOME");
-
 const socketClient = io();
 
 console.log("VISTA REAL TIME");
@@ -12,14 +10,14 @@ socketClient.on("productsAll", (allProd) => {
   let prodListHtml = "";
   allProd.map((p) => {
     prodListHtml += `<div class="items">
-    <div>${p.title}</div>
-    <div>${p.thumbnails}</div>
-    <div>${p.description}</div>
-    <div>${p.price}</div>
-    <div>${p.category}</div>
-    <div>${p.stock}</div>
-    <div>${p.code}</div>
-    <div>${p.id}</div>
+    <div id="title">${p.title}</div>
+    <div class="imgThumb"><img src="${p.thumbnails}"></div>
+    <div class="line1">${p.description}</div>
+    <div class="line2">$ ${p.price}</div>
+    <div class="line1">Categoria: ${p.category}</div>
+    <div class="line2">Stock: ${p.stock}</div>
+    <div class="line1">Codigo: ${p.code}</div>
+    <div class="line2">ID: ${p.id}</div>
     </div>`;
   });
   allProducts.innerHTML = prodListHtml;
