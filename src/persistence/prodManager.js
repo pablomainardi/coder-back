@@ -26,7 +26,6 @@ export class ProductManager {
     description,
     code,
     price,
-    status,
     stock,
     category,
     thumbnails
@@ -44,7 +43,7 @@ export class ProductManager {
         !description ||
         !code ||
         !price ||
-        !status ||
+        // !status ||
         !stock ||
         !category
       ) {
