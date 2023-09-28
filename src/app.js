@@ -9,7 +9,9 @@ import { prodService } from "./persistence/index.js";
 import { Server } from "socket.io";
 
 //Servidor express
-const port = 8080;
+//Al subirlo a produccion cambiar a: -----
+const port = process.env.PORT || 8080;
+// const port = 8080;
 const app = express();
 // Servidor de HTTP
 const httpServer = app.listen(port, () => console.log("Server Funcionando OK"));
