@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { prodService } from "../persistence/index.js";
+import { prodService } from "../dao/index.js";
 
 const router = Router();
 

@@ -32,7 +32,7 @@ socketClient.on("productsAll", (allProd) => {
     <div class="line1">Categoria: ${p.category}</div>
     <div class="line2">Stock: ${p.stock}</div>
     <div class="line1">Codigo: ${p.code}</div>
-    <div class="line2">ID: ${p.id}</div>
+    <div class="line2">ID: ${p._id}</div>
     </div>`;
   });
   allprodReal.innerHTML = prodListHtml;
@@ -49,7 +49,7 @@ formDelProd.addEventListener("submit", (e) => {
   // }
   // console.log(jsonData);
   // Enviamos data del producto a agregar al servidor
-  socketClient.emit("delProd", Number(idNumber));
+  socketClient.emit("delProd", idNumber); //Number()
   // Para resetear el formulario al enviar
   formDelProd.reset();
 });

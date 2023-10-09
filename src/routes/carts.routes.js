@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { cartService } from "../persistence/index.js";
+import { cartsService } from "../dao/index.js";
 
 const router = Router();
 
@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
 router.get("/:cid", async (req, res) => {
   try {
     const cartId = Number(req.params.cid);
-    const thisCart = await cartService.getProductByCartId(cartId);
+    const thisCart = await cartsService.getProductByCartId(cartId);
     res.json(thisCart);
   } catch (error) {
     res.json({

@@ -47,7 +47,6 @@ export class CartManager {
   }
 
   //metodo para agregar un producto por id  al carrito seleccionado por id
-
   async addCart(cid, pid) {
     await this.ensureFileExists();
     try {

@@ -4,9 +4,15 @@ import { __dirname } from "./utils.js";
 import path from "path";
 import { viewsRouter } from "./routes/views.routes.js";
 // importando productos
-import { prodService } from "./persistence/index.js";
+import { prodService } from "./dao/index.js";
 // Implementando Socket IO
 import { Server } from "socket.io";
+
+// importando funcion base de datos
+import { connectDB } from "./config/dbConnection.js";
+
+import { cartsRouter } from "./routes/carts.routes.js";
+import { productsRouter } from "./routes/products.routes.js";
 
 //Servidor express
 //Al subirlo a produccion cambiar a: -----
@@ -17,10 +23,10 @@ const app = express();
 const httpServer = app.listen(port, () => console.log("Server Funcionando OK"));
 // Server de  Socket IO para Backend
 const socketServer = new Server(httpServer);
-
+// Conexion base de datos
+connectDB();
 // Integrando proyecto de productos XXXXX
-import { cartsRouter } from "./routes/carts.routes.js";
-import { productsRouter } from "./routes/products.routes.js";
+
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -42,19 +48,11 @@ app.use(viewsRouter);
 // Socket configuracion
 socketServer.on("connection", async (socket) => {
   console.log("cliente conectado", socket.id);
-  const productos = await prodService.getProducts();
-  socket.emit("productsAll", productos);
+  const allProd = await prodService.getProducts();
+  socket.emit("productsAll", allProd);
   // Recibimos producto a agregar del cliente
   socket.on("addProd", async (data) => {
-    await prodService.addProduct(
-      data.title,
-      data.description,
-      data.code,
-      data.price,
-      data.stock,
-      data.category,
-      data.thumbnails
-    );
+    await prodService.addProduct(data);
     const products = await prodService.getProducts();
     socketServer.emit("productsAll", products);
   });

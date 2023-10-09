@@ -17,7 +17,7 @@ socketClient.on("productsAll", (allProd) => {
     <div class="line1">Categoria: ${p.category}</div>
     <div class="line2">Stock: ${p.stock}</div>
     <div class="line1">Codigo: ${p.code}</div>
-    <div class="line2">ID: ${p.id}</div>
+    <div class="line2">ID: ${p._id}</div>
     </div>`;
   });
   allProducts.innerHTML = prodListHtml;
