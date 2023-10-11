@@ -1,0 +1,652 @@
+[
+  {
+    "title": "Pelota de Fútbol Nike",
+    "description": "Pelota de fútbol de la marca Nike.",
+    "code": "FU101",
+    "price": 24.99,
+    "status": true,
+    "stock": 50,
+    "category": "Fútbol",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Botas de Fútbol Adidas",
+    "description": "Botas de fútbol de alto rendimiento de la marca Adidas.",
+    "code": "FU102",
+    "price": 89.99,
+    "status": true,
+    "stock": 30,
+    "category": "Fútbol",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Red de Entrenamiento para Fútbol",
+    "description": "Red de entrenamiento para practicar tiros al arco en fútbol.",
+    "code": "FU103",
+    "price": 19.95,
+    "status": true,
+    "stock": 20,
+    "category": "Fútbol",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Raqueta de Tenis Wilson",
+    "description": "Raqueta de tenis profesional de la marca Wilson.",
+    "code": "TE104",
+    "price": 119.99,
+    "status": true,
+    "stock": 15,
+    "category": "Tenis",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Pelotas de Tenis Dunlop",
+    "description": "Pelotas de tenis de alta calidad de la marca Dunlop.",
+    "code": "TE105",
+    "price": 29.99,
+    "status": true,
+    "stock": 60,
+    "category": "Tenis",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Bolsa de Tenis Babolat",
+    "description": "Bolsa para raquetas y accesorios de tenis de la marca Babolat.",
+    "code": "TE106",
+    "price": 49.95,
+    "status": true,
+    "stock": 25,
+    "category": "Tenis",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Guantes de Boxeo Everlast",
+    "description": "Guantes de boxeo de alta calidad de la marca Everlast.",
+    "code": "BO107",
+    "price": 69.95,
+    "status": true,
+    "stock": 40,
+    "category": "Boxeo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Saco de Boxeo Ringside",
+    "description": "Saco de boxeo de gran resistencia de la marca Ringside.",
+    "code": "BO108",
+    "price": 119.99,
+    "status": true,
+    "stock": 20,
+    "category": "Boxeo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Shorts de Boxeo Everlast",
+    "description": "Shorts de boxeo cómodos y duraderos de la marca Everlast.",
+    "code": "BO109",
+    "price": 34.99,
+    "status": true,
+    "stock": 35,
+    "category": "Boxeo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Máquina de Ejercicio elíptica",
+    "description": "Máquina de ejercicio elíptica para entrenamiento en casa.",
+    "code": "FI110",
+    "price": 349.99,
+    "status": true,
+    "stock": 10,
+    "category": "Fitness",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Pesas de Mano Ajustables",
+    "description": "Pesas de mano ajustables para entrenamiento de fuerza.",
+    "code": "FI111",
+    "price": 79.99,
+    "status": true,
+    "stock": 40,
+    "category": "Fitness",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Leggings de Fitness Nike",
+    "description": "Leggings de fitness de la marca Nike para mujeres.",
+    "code": "FI112",
+    "price": 49.95,
+    "status": true,
+    "stock": 30,
+    "category": "Fitness",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Traje de Baño Speedo",
+    "description": "Traje de baño de competición de la marca Speedo.",
+    "code": "NA113",
+    "price": 54.95,
+    "status": true,
+    "stock": 45,
+    "category": "Natación",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Gafas de Natación TYR",
+    "description": "Gafas de natación de alto rendimiento de la marca TYR.",
+    "code": "NA114",
+    "price": 19.99,
+    "status": true,
+    "stock": 55,
+    "category": "Natación",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Pull Buoy para Natación",
+    "description": "Pull buoy para mejorar la técnica de natación.",
+    "code": "NA115",
+    "price": 12.95,
+    "status": true,
+    "stock": 25,
+    "category": "Natación",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Balón de Baloncesto Spalding",
+    "description": "Balón de baloncesto de la marca Spalding.",
+    "code": "BA116",
+    "price": 29.99,
+    "status": true,
+    "stock": 35,
+    "category": "Baloncesto",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Zapatillas de Baloncesto Nike",
+    "description": "Zapatillas de baloncesto de alto rendimiento de Nike.",
+    "code": "BA117",
+    "price": 139.99,
+    "status": true,
+    "stock": 25,
+    "category": "Baloncesto",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Canasta de Baloncesto Lifetime",
+    "description": "Canasta de baloncesto portátil de la marca Lifetime.",
+    "code": "BA118",
+    "price": 199.95,
+    "status": true,
+    "stock": 15,
+    "category": "Baloncesto",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Bicicleta de Montaña Trek",
+    "description": "Bicicleta de montaña de alta calidad de la marca Trek.",
+    "code": "CI119",
+    "price": 599.99,
+    "status": true,
+    "stock": 10,
+    "category": "Ciclismo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Casco de Ciclismo Giro",
+    "description": "Casco de ciclismo ligero y seguro de la marca Giro.",
+    "code": "CI120",
+    "price": 49.95,
+    "status": true,
+    "stock": 30,
+    "category": "Ciclismo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Ropa de Ciclismo Pearl Izumi",
+    "description": "Ropa de ciclismo de alta calidad de la marca Pearl Izumi.",
+    "code": "CI121",
+    "price": 79.99,
+    "status": true,
+    "stock": 20,
+    "category": "Ciclismo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Zapatillas de Running Asics",
+    "description": "Zapatillas de running de alto rendimiento de la marca Asics.",
+    "code": "AT122",
+    "price": 89.99,
+    "status": true,
+    "stock": 25,
+    "category": "Atletismo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Pulsómetro Garmin",
+    "description": "Pulsómetro de seguimiento de actividad de la marca Garmin.",
+    "code": "AT123",
+    "price": 69.99,
+    "status": true,
+    "stock": 20,
+    "category": "Atletismo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Set de Entrenamiento de Resistencia",
+    "description": "Set de bandas elásticas de resistencia para entrenamiento.",
+    "code": "AT124",
+    "price": 34.95,
+    "status": true,
+    "stock": 35,
+    "category": "Atletismo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Pelota de Fútbol Puma",
+    "description": "Pelota de fútbol de la marca Puma.",
+    "code": "FU125",
+    "price": 27.99,
+    "status": true,
+    "stock": 40,
+    "category": "Fútbol",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Botas de Fútbol Nike Mercurial",
+    "description": "Botas de fútbol de alta velocidad de la marca Nike Mercurial.",
+    "code": "FU126",
+    "price": 99.99,
+    "status": true,
+    "stock": 30,
+    "category": "Fútbol",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Conos de Entrenamiento para Fútbol",
+    "description": "Conos de entrenamiento para mejorar la agilidad en fútbol.",
+    "code": "FU127",
+    "price": 9.95,
+    "status": true,
+    "stock": 50,
+    "category": "Fútbol",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Raqueta de Tenis Head",
+    "description": "Raqueta de tenis de alto rendimiento de la marca Head.",
+    "code": "TE128",
+    "price": 129.99,
+    "status": true,
+    "stock": 25,
+    "category": "Tenis",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Pelotas de Tenis Wilson",
+    "description": "Pelotas de tenis duraderas de la marca Wilson.",
+    "code": "TE129",
+    "price": 21.99,
+    "status": true,
+    "stock": 60,
+    "category": "Tenis",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Bolsa de Tenis Babolat",
+    "description": "Bolsa espaciosa para raquetas y accesorios de tenis de la marca Babolat.",
+    "code": "TE130",
+    "price": 64.95,
+    "status": true,
+    "stock": 15,
+    "category": "Tenis",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Guantes de Boxeo Venum",
+    "description": "Guantes de boxeo de alta calidad de la marca Venum.",
+    "code": "BO131",
+    "price": 59.95,
+    "status": true,
+    "stock": 35,
+    "category": "Boxeo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Saco de Boxeo Everlast",
+    "description": "Saco de boxeo resistente de la marca Everlast.",
+    "code": "BO132",
+    "price": 129.99,
+    "status": true,
+    "stock": 20,
+    "category": "Boxeo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Ropa de Boxeo Reebok",
+    "description": "Ropa de boxeo cómoda y duradera de la marca Reebok.",
+    "code": "BO133",
+    "price": 44.99,
+    "status": true,
+    "stock": 30,
+    "category": "Boxeo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Bicicleta Estacionaria Schwinn",
+    "description": "Bicicleta estacionaria de alta calidad de la marca Schwinn para entrenamiento en casa.",
+    "code": "FI134",
+    "price": 299.99,
+    "status": true,
+    "stock": 10,
+    "category": "Fitness",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Bandas de Resistencia para Fitness",
+    "description": "Bandas de resistencia versátiles para entrenamiento de fuerza en casa.",
+    "code": "FI135",
+    "price": 19.95,
+    "status": true,
+    "stock": 40,
+    "category": "Fitness",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Camiseta de Fitness Under Armour",
+    "description": "Camiseta de fitness de alto rendimiento de la marca Under Armour.",
+    "code": "FI136",
+    "price": 29.99,
+    "status": true,
+    "stock": 30,
+    "category": "Fitness",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Traje de Baño Arena",
+    "description": "Traje de baño de competición de la marca Arena.",
+    "code": "NA137",
+    "price": 64.95,
+    "status": true,
+    "stock": 45,
+    "category": "Natación",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Gafas de Natación Speedo",
+    "description": "Gafas de natación de alto rendimiento de la marca Speedo.",
+    "code": "NA138",
+    "price": 24.99,
+    "status": true,
+    "stock": 55,
+    "category": "Natación",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Tabla de Natación para Entrenamiento",
+    "description": "Tabla de natación para mejorar la técnica de natación.",
+    "code": "NA139",
+    "price": 11.95,
+    "status": true,
+    "stock": 25,
+    "category": "Natación",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Balón de Baloncesto Spalding",
+    "description": "Balón de baloncesto de la marca Spalding.",
+    "code": "BA140",
+    "price": 29.99,
+    "status": true,
+    "stock": 35,
+    "category": "Baloncesto",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Zapatillas de Baloncesto Under Armour",
+    "description": "Zapatillas de baloncesto de alto rendimiento de Under Armour.",
+    "code": "BA141",
+    "price": 119.99,
+    "status": true,
+    "stock": 25,
+    "category": "Baloncesto",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Canasta de Baloncesto Spalding",
+    "description": "Canasta de baloncesto portátil de la marca Spalding.",
+    "code": "BA142",
+    "price": 199.95,
+    "status": true,
+    "stock": 15,
+    "category": "Baloncesto",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Bicicleta de Montaña Trek",
+    "description": "Bicicleta de montaña de alta calidad de la marca Trek.",
+    "code": "CI143",
+    "price": 599.99,
+    "status": true,
+    "stock": 10,
+    "category": "Ciclismo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Casco de Ciclismo Bell",
+    "description": "Casco de ciclismo con diseño aerodinámico de la marca Bell.",
+    "code": "CI144",
+    "price": 59.95,
+    "status": true,
+    "stock": 30,
+    "category": "Ciclismo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Maillot de Ciclismo Castelli",
+    "description": "Maillot de ciclismo de alto rendimiento de la marca Castelli.",
+    "code": "CI145",
+    "price": 89.99,
+    "status": true,
+    "stock": 20,
+    "category": "Ciclismo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Zapatillas de Running Nike",
+    "description": "Zapatillas de running de alto rendimiento de la marca Nike.",
+    "code": "AT146",
+    "price": 84.99,
+    "status": true,
+    "stock": 25,
+    "category": "Atletismo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Reloj Deportivo Garmin",
+    "description": "Reloj deportivo con GPS de la marca Garmin.",
+    "code": "AT147",
+    "price": 119.99,
+    "status": true,
+    "stock": 20,
+    "category": "Atletismo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Set de Bandas de Resistencia",
+    "description": "Set de bandas de resistencia para entrenamiento de fuerza.",
+    "code": "AT148",
+    "price": 29.95,
+    "status": true,
+    "stock": 35,
+    "category": "Atletismo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Pelota de Fútbol Adidas",
+    "description": "Pelota de fútbol de la marca Adidas.",
+    "code": "FU149",
+    "price": 27.99,
+    "status": true,
+    "stock": 40,
+    "category": "Fútbol",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Botas de Fútbol Puma",
+    "description": "Botas de fútbol de alto rendimiento de la marca Puma.",
+    "code": "FU150",
+    "price": 84.99,
+    "status": true,
+    "stock": 30,
+    "category": "Fútbol",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Set de Conos de Entrenamiento para Fútbol",
+    "description": "Set de conos de entrenamiento para mejorar la agilidad en fútbol.",
+    "code": "FU151",
+    "price": 14.95,
+    "status": true,
+    "stock": 50,
+    "category": "Fútbol",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Raqueta de Tenis Babolat",
+    "description": "Raqueta de tenis de alta calidad de la marca Babolat.",
+    "code": "TE152",
+    "price": 139.99,
+    "status": true,
+    "stock": 25,
+    "category": "Tenis",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Pelotas de Tenis Wilson",
+    "description": "Pelotas de tenis de calidad profesional de la marca Wilson.",
+    "code": "TE153",
+    "price": 24.99,
+    "status": true,
+    "stock": 60,
+    "category": "Tenis",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Grip de Raqueta de Tenis",
+    "description": "Grip de raqueta de tenis antideslizante.",
+    "code": "TE154",
+    "price": 5.95,
+    "status": true,
+    "stock": 70,
+    "category": "Tenis",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Guantes de Boxeo Venum",
+    "description": "Guantes de boxeo de alta calidad de la marca Venum.",
+    "code": "BO155",
+    "price": 69.95,
+    "status": true,
+    "stock": 35,
+    "category": "Boxeo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Saco de Boxeo Everlast",
+    "description": "Saco de boxeo resistente de la marca Everlast.",
+    "code": "BO156",
+    "price": 129.99,
+    "status": true,
+    "stock": 20,
+    "category": "Boxeo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Ropa de Boxeo Adidas",
+    "description": "Ropa de boxeo cómoda y duradera de la marca Adidas.",
+    "code": "BO157",
+    "price": 44.99,
+    "status": true,
+    "stock": 30,
+    "category": "Boxeo",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Bicicleta de Ejercicio Schwinn",
+    "description": "Bicicleta de ejercicio de alta calidad de la marca Schwinn para el hogar.",
+    "code": "FI158",
+    "price": 349.99,
+    "status": true,
+    "stock": 10,
+    "category": "Fitness",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Cuerdas de Saltar de Fitness",
+    "description": "Cuerdas de saltar ajustables para entrenamiento de cardio.",
+    "code": "FI159",
+    "price": 14.95,
+    "status": true,
+    "stock": 60,
+    "category": "Fitness",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Leggings de Fitness Reebok",
+    "description": "Leggings de fitness de alta calidad de la marca Reebok para mujeres.",
+    "code": "FI160",
+    "price": 39.95,
+    "status": true,
+    "stock": 40,
+    "category": "Fitness",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Traje de Baño Speedo",
+    "description": "Traje de baño de competición de la marca Speedo.",
+    "code": "NA161",
+    "price": 64.95,
+    "status": true,
+    "stock": 45,
+    "category": "Natación",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Gafas de Natación TYR",
+    "description": "Gafas de natación de alto rendimiento de la marca TYR.",
+    "code": "NA162",
+    "price": 29.99,
+    "status": true,
+    "stock": 55,
+    "category": "Natación",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Pull Buoy para Natación",
+    "description": "Pull buoy para mejorar la técnica de natación.",
+    "code": "NA163",
+    "price": 12.95,
+    "status": true,
+    "stock": 25,
+    "category": "Natación",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Balón de Baloncesto Wilson",
+    "description": "Balón de baloncesto de la marca Wilson.",
+    "code": "BA164",
+    "price": 27.99,
+    "status": true,
+    "stock": 35,
+    "category": "Baloncesto",
+    "thumbnails": "https://picsum.photos/150"
+  },
+  {
+    "title": "Zapatillas de Baloncesto Under Armour",
+    "description": "Zapatillas de baloncesto de alto rendimiento de Under Armour.",
+    "code": "BA165",
+    "price": 129.99,
+    "status": true,
+    "stock": 25,
+    "category": "Baloncesto",
+    "thumbnails": "https://picsum.photos/150"
+  }
+]

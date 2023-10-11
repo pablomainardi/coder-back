@@ -1,6 +1,6 @@
 const socketClient = io();
 
-console.log("VISTA REAL TIME");
+console.log("VISTA HOME");
 
 const allProducts = document.getElementById("listadoProductos");
 

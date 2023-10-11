@@ -5,6 +5,7 @@ const productCollection = "products";
 const productSchema = new mongoose.Schema({
   title: {
     type: String,
+    index: true,
     require: true,
   },
   description: {
@@ -18,6 +19,7 @@ const productSchema = new mongoose.Schema({
   },
   price: {
     type: Number,
+    index: true,
     require: true,
   },
   stock: {
@@ -25,9 +27,19 @@ const productSchema = new mongoose.Schema({
     require: true,
   },
   category: {
+    index: true,
     type: String,
     require: true,
-    enums: ["Deportes", "Ropa", "Pesca"],
+    enums: [
+      "Fútbol",
+      "Tenis",
+      "Boxeo",
+      "Fitness",
+      "Natación",
+      "Baloncesto",
+      "Ciclismo",
+      "Atletismo",
+    ],
   },
   thumbnails: String,
 });

@@ -5,7 +5,7 @@ const router = Router();
 
 router.get("/", async (req, res) => {
   const products = await prodService.getProducts();
-  console.log("productos", products);
+  // console.log("productos", products);
   res.render("home", { products: products });
 });
 

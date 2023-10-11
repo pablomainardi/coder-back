@@ -1,19 +1,15 @@
 import mongoose from "mongoose";
 
-const chatCollection = "chat";
+const chatCollection = "chats";
 
 const chatSchema = new mongoose.Schema({
-  products: {
-    type: [
-      {
-        productId: String,
-        quantity: {
-          type: Number,
-          require: true,
-        },
-      },
-    ],
-    default: [],
+  user: {
+    type: String,
+    require: true,
+  },
+  message: {
+    type: String,
+    require: true,
   },
 });
 

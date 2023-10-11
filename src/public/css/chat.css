@@ -1,0 +1,55 @@
+.chatPage {
+  background: lightblue;
+  align-items: center;
+  margin: 0 auto;
+}
+
+#chatBox {
+  height: 60%;
+  border: 3px, solid, black;
+
+  border-radius: 20px;
+  width: 80%;
+  align-items: center;
+  margin: 0 auto;
+
+  overflow-y: auto;
+  scroll-behavior: smooth;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+}
+
+#inputMsg {
+  width: 50%;
+  height: 40px;
+  font-size: 20px;
+}
+
+#sendBtnMsg {
+  margin-left: 10px;
+  width: 80px;
+  height: 40px;
+  border-radius: 5px;
+}
+
+.chatMsgBox {
+  border: 1px solid black;
+  margin: 2px auto;
+  padding: 1px;
+  background-color: #ddd;
+  border-radius: 5px;
+  width: 90%;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  align-items: flex-start;
+}
+
+.chatUser {
+  font-weight: 700;
+}
+
+.chatMsg {
+  width: 100%;
+}
