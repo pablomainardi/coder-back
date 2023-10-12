@@ -2,6 +2,7 @@ import { Router } from "express";
 import { prodService } from "../dao/index.js";
 
 const router = Router();
+//    "/api/products"
 
 // devuelve todos los productos
 router.get("/", async (req, res) => {

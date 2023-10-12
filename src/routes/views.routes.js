@@ -13,6 +13,10 @@ router.get("/realtimeproducts", (req, res) => {
   res.render("realtime");
 });
 
+router.get("/carts", (req, res) => {
+  res.render("carts");
+});
+
 export { router as viewsRouter };
 
 // const users = [

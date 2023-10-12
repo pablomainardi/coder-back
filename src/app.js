@@ -4,7 +4,7 @@ import { __dirname } from "./utils.js";
 import path from "path";
 import { viewsRouter } from "./routes/views.routes.js";
 // importando productos
-import { chatService, prodService } from "./dao/index.js";
+import { cartsService, chatService, prodService } from "./dao/index.js";
 // Implementando Socket IO
 import { Server } from "socket.io";
 
@@ -14,6 +14,7 @@ import { connectDB } from "./config/dbConnection.js";
 import { cartsRouter } from "./routes/carts.routes.js";
 import { productsRouter } from "./routes/products.routes.js";
 import { chatsRouter } from "./routes/chat.routes.js";
+import { CartManager } from "./dao/cartManager.js";
 
 //Servidor express
 //Al subirlo a produccion cambiar a: -----
@@ -64,10 +65,25 @@ io.on("connection", async (socket) => {
     io.emit("productsAll", products);
   });
 
+  // CARRO DE COMPRAS
+  socket.on("pAddCart", async (pid) => {
+    await cartsService.createCart(); //creamos el carro
+    const carts = await cartsService.getAllCarts(); // traemos a una variable todos los carros
+    const cid = carts[carts.length - 1]; //buscamos el ultimo carro
+    await cartsService.addCart(cid, pid); // agregamos producto
+  });
+  const carts = await cartsService.getAllCarts();
+  socket.emit("cartAll", carts);
+
   // Servicio de chat
 
   // let chat = [];
-  // io.emit("chatHistory", historyMsg);
+
+  io.emit("chatHistory", async () => {
+    const historyMsg = await chatService.getHistoryChat();
+    io.emit("chatHistory", historyMsg);
+  });
+
   socket.on("msgChat", async (data) => {
     await chatService.addChat(data);
     const historyMsg = await chatService.getHistoryChat();

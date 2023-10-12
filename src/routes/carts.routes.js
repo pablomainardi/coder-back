@@ -1,12 +1,12 @@
 import { Router } from "express";
 import { cartsService } from "../dao/index.js";
-
+//    "/api/carts"
 const router = Router();
 
 //crea un nuevo carrito
 router.post("/", async (req, res) => {
   try {
-    await cartService.createCart();
+    await cartsService.createCart();
     res.json({ message: "Carrito creado" });
   } catch (error) {
     res.json({ message: "Error al intentar crear el carrito" });
@@ -16,7 +16,7 @@ router.post("/", async (req, res) => {
 //devuelve todos los productos de un carrito por id
 router.get("/:cid", async (req, res) => {
   try {
-    const cartId = Number(req.params.cid);
+    const cartId = req.params.cid;
     const thisCart = await cartsService.getProductByCartId(cartId);
     res.json(thisCart);
   } catch (error) {
@@ -30,11 +30,11 @@ router.get("/:cid", async (req, res) => {
 //agrega un producto por id  al carrito seleccionado por id
 router.post("/:cid/product/:pid", async (req, res) => {
   try {
-    const cartId = Number(req.params.cid);
-    const prodId = Number(req.params.pid);
+    const cid = req.params.cid;
+    const pid = req.params.pid;
 
     // const data = req.body;
-    await cartService.addCart(cartId, prodId);
+    await cartsService.addCart(cid, pid);
 
     res.json({ message: "Producto agregado al carrito" });
   } catch (error) {

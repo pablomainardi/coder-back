@@ -31,8 +31,8 @@ socketClient.on("chatHistory", (historyChatServer) => {
       <div class="chatUser">${p.user}:</div>
       <div class="chatMsg">${p.message}></div>
       </div>`;
-    chatBox.scrollTop = chatBox.scrollHeight;
     chatBox.innerHTML = historyChats;
+    chatBox.scrollTop = chatBox.scrollHeight;
   });
 });
 
@@ -40,6 +40,8 @@ const userAndMsg = () => {
   const msg = { user: user, message: inputMsg.value };
   //   console.log(msg);
   socketClient.emit("msgChat", msg);
+  inputMsg.value = "";
+  inputMsg.focus();
 };
 
 // para enviar mensaje click /enter

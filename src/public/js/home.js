@@ -6,7 +6,6 @@ const allProducts = document.getElementById("listadoProductos");
 
 // Se reciben todos los productos
 socketClient.on("productsAll", (allProd) => {
-  //   console.log(allProd);
   let prodListHtml = "";
   allProd.map((p) => {
     prodListHtml += `<div class="items">
@@ -18,9 +17,19 @@ socketClient.on("productsAll", (allProd) => {
     <div class="line2">Stock: ${p.stock}</div>
     <div class="line1">Codigo: ${p.code}</div>
     <div class="line2">ID: ${p._id}</div>
+    <button class="btnAddCart" value="${p._id}">Agregar al carro</button>
     </div>`;
   });
+
   allProducts.innerHTML = prodListHtml;
+  const btnAddCart = document.querySelectorAll(".btnAddCart");
+  btnAddCart.forEach((btn) => {
+    btn.addEventListener("click", () => {
+      const pid = btn.value;
+      socketClient.emit("pAddCart", pid);
+      console.log(btn.value);
+    });
+  });
 });
 
 // // implementar socket para capturar desde un input text

@@ -40,3 +40,12 @@
   width: 150px;
   border-radius: 7px;
 }
+
+.btnAddCart {
+  width: auto;
+  font-size: 18px;
+  border: 2px solid #4b4;
+  border-radius: 10px;
+  padding: 3px;
+  margin: 7px auto;
+}
