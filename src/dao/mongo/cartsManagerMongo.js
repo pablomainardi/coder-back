@@ -2,14 +2,21 @@ import { cartsService } from "../index.js";
 import { cartsModel } from "./models/carts.model.js";
 import { productsModel } from "./models/products.model.js";
 
+// let lastCartId = [];
+
 export class CartsManagerMongo {
   constructor() {
     this.model = cartsModel;
   }
+
   //metodo para agregar un carrito
-  async createCart() {
+  async createCart(newCart) {
     try {
-      const result = await this.model.create();
+      console.log("Carro CREADO");
+      const result = await this.model.create(newCart);
+      // const findLastCart = await this.model.find(); //traemos todos los carts
+      // let lastCart = findLastCart[findLastCart.length - 1]; //buscamos el ultimo cart
+      // lastCart._id = lastCartId; // guardamos el _id del ultimo cart
       return result;
     } catch (error) {
       console.log("createCart", error.message);
@@ -20,12 +27,12 @@ export class CartsManagerMongo {
   async addCart(cid, pid) {
     try {
       const cart = await this.model.findById(cid);
-      const existingProduct = cart.carts.find(
-        (product) => product.productId === pid
+      const existingProductIndex = cart.carts.findIndex(
+        (product) => product.productId.toString() === pid.toString()
       );
-      // Verificar si existe otro producto con el mismo id dentro del carrito
-      if (existingProduct) {
-        existingProduct.quantity += 1;
+
+      if (existingProductIndex !== -1) {
+        cart.carts[existingProductIndex].quantity += 1;
       } else {
         cart.carts.push({ productId: pid, quantity: 1 });
       }
@@ -51,7 +58,8 @@ export class CartsManagerMongo {
   //trae productos todos los carros
   async getAllCarts() {
     try {
-      const result = await this.model.find();
+      const result = await this.model.find().populate("carts.productId");
+      console.log(result);
       return result;
     } catch (error) {
       console.log("getAllCarts", error.message);

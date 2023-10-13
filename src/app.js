@@ -67,18 +67,17 @@ io.on("connection", async (socket) => {
 
   // CARRO DE COMPRAS
   socket.on("pAddCart", async (pid) => {
-    await cartsService.createCart(); //creamos el carro
+    // desde boton agregar al carro
+    // await cartsService.createCart(); //creamos el carro
     const carts = await cartsService.getAllCarts(); // traemos a una variable todos los carros
-    const cid = carts[carts.length - 1]; //buscamos el ultimo carro
+    const cid = carts[carts.length - 1]._id; //buscamos el ultimo carro
     await cartsService.addCart(cid, pid); // agregamos producto
   });
+  //trae todos los carros
   const carts = await cartsService.getAllCarts();
   socket.emit("cartAll", carts);
 
-  // Servicio de chat
-
-  // let chat = [];
-
+  // SERVICIO DE CHAT
   io.emit("chatHistory", async () => {
     const historyMsg = await chatService.getHistoryChat();
     io.emit("chatHistory", historyMsg);

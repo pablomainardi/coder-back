@@ -8,16 +8,23 @@ const cartBox = document.getElementById("cartBox");
 socketClient.on("cartAll", async (cartAll) => {
   let carts = "";
   console.log(cartAll);
-  cartAll.map((p) => {
+  cartAll.forEach((cart) => {
     carts += `<div class="cart">
-      <div id="cartId" class="line1">${p._id}</div>
-     
-         </div>`;
+      <div id="cartId" class="line1">Carro numero: ${cart._id}</div>
+      <br>`;
+    cart.carts.forEach((item) => {
+      carts += `<div class="prodId">${item.productId.title}</div>
+      <div class="prodId">${item.productId.thumbnails}</div>
+      <div class="prodId">$ ${item.productId.price}</div>
+                <div class="prodCant">Cantidad: ${item.quantity}</div>
+                <hr/>`;
+    });
+    carts += `</div>`;
   });
-  //   <div class="prodId">${p.productId}</div>
-  //   <div class="prodCant">${p.quantity}</div>
+
   cartBox.innerHTML = carts;
 });
+
 //   cartAll.forEach((e) => {
 //     cartBox.innerHTML = `<div class="cart">
 //     <div id="cartId" class="line1">${e._id}</div>
