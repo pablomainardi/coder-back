@@ -138,7 +138,7 @@ export class ProductManager {
       const allProducts = await fs.promises.readFile(this.path, "utf-8");
       const allProductsJson = JSON.parse(allProducts);
       let findId = allProductsJson.find((p) => p.id === i);
-      console.log(findId);
+      // console.log(findId);
       if (findId) {
         const prod = {
           id: i,

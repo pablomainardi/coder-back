@@ -16,6 +16,48 @@ export class ProductsManagerMongo {
     }
   }
 
+  // VERIFICAR PAGINACION
+
+  // async getProductsPaginate(pageNumber) {
+  //   try {
+  //     const limit = 15; // Número de productos por página
+  //     const result = await this.model.paginate(
+  //       {},
+  //       { limit, pageNumber },
+  //       { lean: true }
+  //     );
+  //     console.log(result);
+  //     return result;
+  //   } catch (error) {
+  //     // console.log("getProducts", error.message);
+  //     throw new Error("No se pudo cargar los productos");
+  //   }
+  // }
+
+  //  PAGINACION
+  async getProductsPaginate(pageNumber = 1, limit, order = "asc") {
+    try {
+      const skip = (pageNumber - 1) * limit;
+      let whithOrder = {};
+      if (order === "asc") {
+        whithOrder = { price: 1 };
+      } else if (order === "desc") {
+        whithOrder = { price: -1 };
+      }
+      const result = await this.model
+        .find({})
+        .sort(whithOrder)
+        .skip(skip)
+        .limit(limit)
+        .lean();
+      // console.log("resullttttttttttttttttt", result);
+      return result;
+    } catch (error) {
+      console.log("getProductsPaginate", error.message);
+      throw new Error("No se pudo cargar los productos de forma correcta");
+    }
+  }
+
   //agregar un producto
   async addProduct(productData) {
     try {

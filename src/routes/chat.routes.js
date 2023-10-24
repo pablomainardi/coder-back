@@ -8,7 +8,7 @@ router.get("/chat", (req, res) => {
 });
 
 // devuelve todos los productos
-router.get("/", async (req, res) => {
+router.get("/api/chat", async (req, res) => {
   try {
     const chats = await chatService.getHistoryChat();
     res.json({ status: "success", data: chats });

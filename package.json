@@ -51,6 +51,7 @@
     "mime-db": "^1.52.0",
     "mime-types": "^2.1.35",
     "mongoose": "^7.6.0",
+    "mongoose-paginate-v2": "^1.7.4",
     "ms": "^2.0.0",
     "multer": "^1.4.5-lts.1",
     "negotiator": "^0.6.3",

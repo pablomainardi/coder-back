@@ -14,6 +14,7 @@ import { connectDB } from "./config/dbConnection.js";
 import { cartsRouter } from "./routes/carts.routes.js";
 import { productsRouter } from "./routes/products.routes.js";
 import { chatsRouter } from "./routes/chat.routes.js";
+
 import { CartManager } from "./dao/cartManager.js";
 
 //Servidor express
@@ -44,57 +45,96 @@ app.use("/api/carts", cartsRouter);
 app.use("/api/products", productsRouter);
 app.use(viewsRouter);
 app.use(chatsRouter); // routes chat
+//routes}
 
 // arreglo de msg capturados del cliente por el input
 // let msgHistory = [];
 // Socket configuracion
 io.on("connection", async (socket) => {
   console.log("cliente conectado", socket.id);
-  const allProd = await prodService.getProducts();
+  const allProd = await prodService.getProductsPaginate();
+  // console.log("DESDE APPPPPPPPPPPPPPPPP", allProd);
   socket.emit("productsAll", allProd);
+
   // Recibimos producto a agregar del cliente
   socket.on("addProd", async (data) => {
     await prodService.addProduct(data);
-    const products = await prodService.getProducts();
-    io.emit("productsAll", products);
-  });
-  // Recibimos producto a eliminar del cliente
-  socket.on("delProd", async (data) => {
-    await prodService.deleteProduct(data);
-    const products = await prodService.getProducts();
+    const products = await prodService.getProductsPaginate();
     io.emit("productsAll", products);
   });
 
-  // CARRO DE COMPRAS
+  // Recibimos producto a eliminar del cliente
+  socket.on("delProd", async (data) => {
+    await prodService.deleteProduct(data);
+    const products = await prodService.getProductsPaginate();
+    io.emit("productsAll", products);
+  });
+
+  // SERVICIO DE CARRO DE COMPRAS
   socket.on("pAddCart", async (pid) => {
+    // si no hay carro creado  no esta creando el carro, necesitamos el id del carro
     // desde boton agregar al carro
     // await cartsService.createCart(); //creamos el carro
     const carts = await cartsService.getAllCarts(); // traemos a una variable todos los carros
     const cid = carts[carts.length - 1]._id; //buscamos el ultimo carro
     await cartsService.addCart(cid, pid); // agregamos producto
   });
+
   //trae todos los carros
   const carts = await cartsService.getAllCarts();
   socket.emit("cartAll", carts);
 
-  // SERVICIO DE CHAT
-  io.emit("chatHistory", async () => {
-    const historyMsg = await chatService.getHistoryChat();
-    io.emit("chatHistory", historyMsg);
+  //para eliminar un carro
+  socket.on("delCart", async (cid) => {
+    await cartsService.delCartById(cid);
+    console.log(`Se ha eliminado el carro con ID ${cid}`);
+    const carts = await cartsService.getAllCarts();
+    socket.emit("cartAll", carts); // agregamos producto
   });
+
+  //para eliminar un producto del carro
+  socket.on("delProdCart", async (data) => {
+    const { cid, pid } = data;
+    await cartsService.delProdByIdInCartById(cid, pid);
+    console.log(
+      `Se ha eliminado el producto con ID ${pid} del carrito con ID ${cid}`
+    );
+    const carts = await cartsService.getAllCarts();
+    io.emit("cartAll", carts);
+  });
+
+  // agregar mas cantidades al carro (desde vista carts)
+  socket.on("inpQtyBtn", async (cid, pid, qty) => {
+    // console.log("cid", cid);
+    // console.log("pid", pid);
+    // console.log("qty", qty);
+    await cartsService.addQuantityProd(cid, pid, qty);
+    const carts = await cartsService.getAllCarts();
+    io.emit("cartAll", carts);
+  });
+
+  //VISTA de Carro ID
+  socket.on("dataCart", async (data) => {
+    const result = await cartsService.getCartById(data);
+    return result;
+  });
+
+  // SERVICIO DE CHAT
+  const historyMsg = await chatService.getHistoryChat();
+  io.emit("chatHistory", historyMsg);
 
   socket.on("msgChat", async (data) => {
     await chatService.addChat(data);
     const historyMsg = await chatService.getHistoryChat();
     io.emit("chatHistory", historyMsg);
   });
-
-  // socket.on("chatSend", async (data) => {
-  //   await chatService.addChat(data);
-  //   const historyChat = await chatService.getHistoryChat();
-  //   io.emit("historyChat", historyChat);
-  // });
 });
+// socket.on("chatSend", async (data) => {
+//   await chatService.addChat(data);
+//   const historyChat = await chatService.getHistoryChat();
+//   io.emit("historyChat", historyChat);
+// });
+
 // //   simular input text en home
 // socket.on("msgKey", (data) => {
 //   const msgItem = { socketid: socket.id, mensaje: data };

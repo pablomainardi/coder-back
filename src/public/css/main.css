@@ -1,29 +1,50 @@
 body {
-  background-color: lightblue;
   text-align: center;
+}
+
+a:visited {
+  color: #55f;
+}
+
+.navMain {
+  height: 35px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  border-bottom: 2px solid black;
+  color: #55f;
+}
+
+.navMain a {
+  margin: 3px 10px;
+  text-decoration: none;
+  padding: 5px;
 }
 
 .navBar {
   font-weight: bold;
 }
-.navMain {
+
+.navRight {
   display: flex;
-  justify-content: space-around;
+  height: auto;
+  width: auto;
+  align-items: center;
+  width: 150px;
 }
 
-.cartIcon img {
+.navRight img {
   align-items: center;
-  width: 40px;
-}
-.navMain a {
-  margin: 3px 10px;
-  border: 2px solid black;
-  background-color: #78f;
-  font-size: 20px;
-  text-decoration: none;
-  padding: 5px;
+  width: 30%;
 }
 
 .lineHr {
   margin: 20px;
+}
+
+.lineFooter {
+  border-top: 2px solid black;
+  height: 150px;
+  background-color: #333;
 }

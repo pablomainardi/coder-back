@@ -26,7 +26,31 @@
   border: 2px solid #44f;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   align-items: center;
   padding: 3px;
+}
+
+.line1 {
+  font-weight: bold;
+}
+.cartIdtitle {
+  font-weight: bold;
+}
+
+.cartIdimg img {
+  width: 50%;
+}
+
+.cartIdprice {
+  font-weight: bold;
+}
+
+.cartIdcant {
+  font-weight: bold;
+}
+
+.hrShort {
+  width: 50%;
+  border: 1px solid black;
 }

@@ -1,7 +1,34 @@
 <link rel="stylesheet" href="/css/home.css" />
 <h1>TODOS LOS PRODUCTOS</h1>
+<div class="filterBox">
+  <div class="filterTitle">
+    <span>Filtro</span>
+  </div>
+  <div class="filterForm">
+    <button></button>
+  </div>
+</div>
 
-<div class="listadoProductos" id="listadoProductos"></div>
+<div class="listadoProductos" id="listadoProductos">
+  {{#each dataProducts}}
+    <div class="items">
+      <div id="title">{{this.title}}</div>
+      <div class="imgThumb"><img src="{{this.thumbnails}}" /></div>
+      <div class="line1">{{this.description}}</div>
+      <div class="line2">$ {{this.price}}</div>
+      <div class="line1">Categoria: {{this.category}}</div>
+      <div class="line2">Stock: {{this.stock}}</div>
+      <div class="line1">Codigo: {{this.code}}</div>
+      <div class="line2">ID: {{this._id}}</div>
+      <button class="btnAddCart" value="{{this._id}}">Agregar al carro</button>
+    </div>
+  {{/each}}
 
+</div>
+<div id="boxPages" class="boxPages">
+
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 <script src="/socket.io/socket.io.js"></script>
 <script src="/js/home.js"></script>

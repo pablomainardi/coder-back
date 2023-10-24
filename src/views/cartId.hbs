@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="/css/cartid.css" />
+<div class="cartPage">
+  <div id="dataCartBox">
+    {{#each cartProducts}}
+      <div class="cart">
+        <div class="top">
+          <h2 class="title">{{this.title}}</h2>
+          <img
+            class="thumbnails"
+            src="{{this.thumbnails}}"
+            alt="Product Image"
+          />
+          <p class="productId">Product ID: {{this.productId}}</p>
+        </div>
+        <div class="details">
+          <div class="mid">
+            <p class="code">Code: {{this.code}}</p>
+            <p class="stock">Stock: {{this.stock}}</p>
+            <p class="status">Status: {{this.status}}</p>
+          </div>
+          <div class="bot">
+            <p class="description">Description: {{this.description}}</p>
+            <p class="price">Price: ${{this.price}}</p>
+            <p class="quantity">Quantity: {{this.quantity}}</p>
+          </div>
+        </div>
+      </div>
+      {{log this}}
+    {{/each}}
+  </div>
+  <br />
+</div>
+
+<script src="/socket.io/socket.io.js"></script>
+<script src="/js/cartid.js"></script>

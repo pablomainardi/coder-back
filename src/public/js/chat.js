@@ -24,7 +24,7 @@ Swal.fire({
 
 //recibimos historial de msg
 socketClient.on("chatHistory", (historyChatServer) => {
-  console.log(historyChatServer);
+  // console.log(historyChatServer);
   let historyChats = "";
   historyChatServer.map((p) => {
     historyChats += `<div class="chatMsgBox">

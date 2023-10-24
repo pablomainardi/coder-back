@@ -84,7 +84,7 @@ export class CartManager {
   }
 
   //trae productos del carro con el id solicitado
-  async getProductByCartId(i) {
+  async getCartById(i) {
     await this.ensureFileExists();
     try {
       const allProductsCartId = await fs.promises.readFile(this.path, "utf-8");

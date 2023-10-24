@@ -17,7 +17,7 @@ router.post("/", async (req, res) => {
 router.get("/:cid", async (req, res) => {
   try {
     const cartId = req.params.cid;
-    const thisCart = await cartsService.getProductByCartId(cartId);
+    const thisCart = await cartsService.getCartById(cartId);
     res.json(thisCart);
   } catch (error) {
     res.json({
@@ -42,9 +42,47 @@ router.post("/:cid/product/:pid", async (req, res) => {
   }
 });
 
-// router.delete("/:userId", (req, res) => {
-//   res.json({ message: "endpoint delete users" });
-// });
+//elimina un carrito por id
+router.delete("/:cartId", async (req, res) => {
+  try {
+    const cartId = req.params.cartId;
+    await cartsService.delCartById(cartId);
+    res.json({ message: `Carrito con el ID ${cartId} fue eliminado` });
+  } catch (error) {
+    res.json({ message: "error al intentar eliminar el carrito" });
+  }
+});
+
+//elimina un producto(id) del carrito segun su id
+router.delete("/:cid/product/:pid", async (req, res) => {
+  try {
+    const cid = req.params.cid;
+    const pid = req.params.pid;
+    console.log(cid, pid);
+
+    const result = await cartsService.delProdByIdInCartById(cid, pid);
+    res.json({ message: `Carrito con el ID ${cid} fue eliminado`, result });
+  } catch (error) {
+    res.json({ message: "error al intentar eliminar el producto" });
+  }
+});
+
+//Agrega CANTIDAD de producto del carro seleccionado
+router.post("/:cid/products/:pid", async (req, res) => {
+  try {
+    const cid = req.params.cid;
+    const pid = req.params.pid;
+    const { quantity } = req.body;
+
+    const result = await cartsService.addQuantityProd(cid, pid, quantity);
+    res.json({
+      message: `Carrito con el ID ${cid} se le agrego ${quantity} cantidades del producto con el ID ${pid}`,
+      result,
+    });
+  } catch (error) {
+    res.json({ message: "error al intentar agregar cantidades del producto" });
+  }
+});
 
 // router.put("/userId:", (req, res) => {
 //   res.json({ message: "endpoint put users" });

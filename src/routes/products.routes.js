@@ -5,22 +5,33 @@ const router = Router();
 //    "/api/products"
 
 // devuelve todos los productos
-router.get("/", async (req, res) => {
-  try {
-    const products = await prodService.getProducts();
-    res.json({ status: "success", data: products });
-  } catch (error) {
-    res.status(500).json({ status: "error", message: error.message });
+router.get("/:pageNumber?/:limit?/:order?", async (req, res) => {
+  //control si establece numero de pagino, sino es 1
+  const pageNumber = parseInt(req.params.pageNumber) || 1; // Asegúrate de convertir a entero
+  let limit = 5; // Establece un valor predeterminado
+  let order = req.query.sort || "asc"; // Obtén el parámetro de orden
+
+  //control si hay parametro de limite
+  if (req.params.limit) {
+    limit = parseInt(req.params.limit);
+  } else if (req.query.limit) {
+    limit = parseInt(req.query.limit);
   }
+  const dataProducts = await prodService.getProductsPaginate(
+    pageNumber,
+    limit,
+    order
+  );
+  res.json(dataProducts);
 });
 
 //devuelve el producto por ID
 router.get("/:pid", async (req, res) => {
   try {
     const getProdId = req.params.pid;
-    console.log(getProdId);
+    // console.log(getProdId);
     const product = await prodService.getProductById(getProdId);
-    console.log(product);
+    // console.log(product);
     res.json({ message: `Producto con el ID ${getProdId}`, data: product });
   } catch (error) {
     res.status(500).json({ status: "error", message: error.message });
@@ -64,6 +75,8 @@ router.delete("/:idProd", async (req, res) => {
     res.status(500).send(error.message);
   }
 });
+
+export { router as productsRouter };
 
 // const allProducts = await prodService.getProducts();
 
@@ -160,5 +173,3 @@ router.delete("/:idProd", async (req, res) => {
 //     res.send(error.message);
 //   }
 // });
-
-export { router as productsRouter };
