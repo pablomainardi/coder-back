@@ -35,25 +35,18 @@ export class ProductsManagerMongo {
   // }
 
   //  PAGINACION
-  async getProductsPaginate(pageNumber = 1, limit, order = "asc") {
+  async getProductsPaginate(pageNumber, limit = 10, order = "asc") {
     try {
-      const skip = (pageNumber - 1) * limit;
-      let whithOrder = {};
-      if (order === "asc") {
-        whithOrder = { price: 1 };
-      } else if (order === "desc") {
-        whithOrder = { price: -1 };
-      }
-      const result = await this.model
-        .find({})
-        .sort(whithOrder)
-        .skip(skip)
-        .limit(limit)
-        .lean();
-      // console.log("resullttttttttttttttttt", result);
+      const options = {
+        page: pageNumber || 1,
+        limit: limit || 10,
+        sort: { price: order === "asc" ? 1 : -1 },
+      };
+      const result = await this.model.paginate({}, options, { lean: true });
+      // console.log("paginate", result);
       return result;
     } catch (error) {
-      console.log("getProductsPaginate", error.message);
+      console.error("getProductsPaginate", error.message);
       throw new Error("No se pudo cargar los productos de forma correcta");
     }
   }

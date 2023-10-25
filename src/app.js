@@ -60,14 +60,14 @@ io.on("connection", async (socket) => {
   socket.on("addProd", async (data) => {
     await prodService.addProduct(data);
     const products = await prodService.getProductsPaginate();
-    io.emit("productsAll", products);
+    io.emit("productsAll", { data: products.docs, paginate: { ...products } });
   });
 
   // Recibimos producto a eliminar del cliente
   socket.on("delProd", async (data) => {
     await prodService.deleteProduct(data);
     const products = await prodService.getProductsPaginate();
-    io.emit("productsAll", products);
+    io.emit("productsAll", { data: products.docs, paginate: { ...products } });
   });
 
   // SERVICIO DE CARRO DE COMPRAS

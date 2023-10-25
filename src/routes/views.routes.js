@@ -3,35 +3,54 @@ import { prodService, cartsService } from "../dao/index.js";
 
 const router = Router();
 
+//PAGINATE
 router.get("/", async (req, res) => {
-  const dataProducts = await prodService.getProductsPaginate();
-  const filterProducts = dataProducts;
-  console.log("VIEWS-FILTER", filterProducts);
-  res.render("home", { dataProducts: filterProducts });
+  // const dataProducts = await prodService.getProductsPaginate();
+  // const filterProducts = dataProducts;
+  // console.log("VIEWS-FILTER", filterProducts);
+  // res.render("home", { dataProducts: filterProducts });
   // console.log("DATAAAPRODUCTSS", dataProducts);
+  res.render("home");
 });
 
-router.get("/products/:pageNumber?/:limit?/:order?", async (req, res) => {
-  //control si establece numero de pagino, sino es 1
-  const pageNumber = parseInt(req.params.pageNumber) || 1; // Asegúrate de convertir a entero
-  let limit = 5; // Establece un valor predeterminado
-  let order = req.query.sort || "asc"; // Obtén el parámetro de orden
+router.get("/products", async (req, res) => {
+  const dataProducts = await prodService.getProductsPaginate();
+  const filterProducts = dataProducts;
+  res.render("products", { dataProducts: filterProducts });
+});
 
-  //control si hay parametro de limite
-  if (req.params.limit) {
-    limit = parseInt(req.params.limit);
-  } else if (req.query.limit) {
-    limit = parseInt(req.query.limit);
-  }
+router.get("/products/:pageNumber", async (req, res) => {
+  const pageNumber = parseInt(req.params.pageNumber) || 1;
+  const limit = parseInt(req.params.limit) || 10;
+  const order = req.params.order || "asc";
+
+  // A continuación, puedes utilizar pageNumber, limit y order en tu lógica.
+
   const dataProducts = await prodService.getProductsPaginate(
     pageNumber,
     limit,
     order
   );
   const filterProducts = dataProducts;
-  console.log("VIEWS-FILTER", filterProducts);
-  res.render("home", { dataProducts: filterProducts });
-  // console.log("DATAAAPRODUCTSS", dataProducts);
+
+  res.render("products", { dataProducts: filterProducts });
+});
+
+router.get("/products/:pageNumber/:limit/:order", async (req, res) => {
+  const pageNumber = parseInt(req.params.pageNumber) || 1;
+  const limit = parseInt(req.params.limit) || 10;
+  const order = req.params.order || "asc";
+
+  // A continuación, puedes utilizar pageNumber, limit y order en tu lógica.
+
+  const dataProducts = await prodService.getProductsPaginate(
+    pageNumber,
+    limit,
+    order
+  );
+  const filterProducts = dataProducts;
+
+  res.render("products", { dataProducts: filterProducts });
 });
 
 router.get("/realtimeproducts", (req, res) => {

@@ -4,7 +4,7 @@ import { prodService } from "../dao/index.js";
 const router = Router();
 //    "/api/products"
 
-// devuelve todos los productos
+// API CON PAGINACION
 router.get("/:pageNumber?/:limit?/:order?", async (req, res) => {
   //control si establece numero de pagino, sino es 1
   const pageNumber = parseInt(req.params.pageNumber) || 1; // Asegúrate de convertir a entero
