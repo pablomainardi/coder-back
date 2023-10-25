@@ -52,22 +52,22 @@ app.use(chatsRouter); // routes chat
 // Socket configuracion
 io.on("connection", async (socket) => {
   console.log("cliente conectado", socket.id);
-  const allProd = await prodService.getProductsPaginate();
+  const allProd = await prodService.getProducts();
   // console.log("DESDE APPPPPPPPPPPPPPPPP", allProd);
   socket.emit("productsAll", allProd);
 
   // Recibimos producto a agregar del cliente
   socket.on("addProd", async (data) => {
     await prodService.addProduct(data);
-    const products = await prodService.getProductsPaginate();
-    io.emit("productsAll", { data: products.docs, paginate: { ...products } });
+    const products = await prodService.getProducts();
+    io.emit("productsAll", products);
   });
 
   // Recibimos producto a eliminar del cliente
   socket.on("delProd", async (data) => {
     await prodService.deleteProduct(data);
-    const products = await prodService.getProductsPaginate();
-    io.emit("productsAll", { data: products.docs, paginate: { ...products } });
+    const products = await prodService.getProducts();
+    io.emit("productsAll", products);
   });
 
   // SERVICIO DE CARRO DE COMPRAS

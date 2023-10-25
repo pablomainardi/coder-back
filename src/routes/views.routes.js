@@ -12,11 +12,12 @@ router.get("/", async (req, res) => {
   // console.log("DATAAAPRODUCTSS", dataProducts);
   res.render("home");
 });
-
+//VISTA PRODUCTOS CON PAGINATE
 router.get("/products", async (req, res) => {
-  const dataProducts = await prodService.getProductsPaginate();
-  const filterProducts = dataProducts;
-  res.render("products", { dataProducts: filterProducts });
+  const dataProducts = await prodService.getProductsPaginate(1, 2);
+  const productsPaginate = dataProducts;
+
+  res.render("products", { dataProducts: productsPaginate });
 });
 
 router.get("/products/:pageNumber", async (req, res) => {
@@ -24,15 +25,13 @@ router.get("/products/:pageNumber", async (req, res) => {
   const limit = parseInt(req.params.limit) || 10;
   const order = req.params.order || "asc";
 
-  // A continuación, puedes utilizar pageNumber, limit y order en tu lógica.
-
   const dataProducts = await prodService.getProductsPaginate(
     pageNumber,
     limit,
     order
   );
-  const filterProducts = dataProducts;
 
+  const filterProducts = dataProducts;
   res.render("products", { dataProducts: filterProducts });
 });
 
@@ -41,15 +40,13 @@ router.get("/products/:pageNumber/:limit/:order", async (req, res) => {
   const limit = parseInt(req.params.limit) || 10;
   const order = req.params.order || "asc";
 
-  // A continuación, puedes utilizar pageNumber, limit y order en tu lógica.
-
   const dataProducts = await prodService.getProductsPaginate(
     pageNumber,
     limit,
     order
   );
-  const filterProducts = dataProducts;
 
+  const filterProducts = dataProducts;
   res.render("products", { dataProducts: filterProducts });
 });
 
