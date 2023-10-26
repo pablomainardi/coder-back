@@ -2,7 +2,17 @@
 
 console.log("VISTA HOME");
 
-//mensaje de producto agregado al carro
+const filterTotalPagesTop = document.getElementById("filterTotalPagesTop");
+const filterTotalPages = document.getElementById("filterTotalPages");
+const totalPages = filterTotalPages.dataset.totalPages;
+
+console.log(totalPages);
+let pagesHTML = "";
+for (let i = 1; i <= totalPages; i++) {
+  pagesHTML += `<a href="/products/${i}">${i}</a> `;
+}
+filterTotalPages.innerHTML = pagesHTML;
+filterTotalPagesTop.innerHTML = pagesHTML;
 
 const Toast = Swal.mixin({
   toast: true,

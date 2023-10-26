@@ -2,7 +2,7 @@
 <h1>TODOS LOS PRODUCTOS</h1>
 <div class="filterBox">
   <div class="filterTitle">
-    <span><a href="/products/">Todos los productos con Paginate</a></span>
+
   </div>
   <br />
 
@@ -11,28 +11,24 @@
       <a href="/products/1/10/asc">Precio Ascendente</a><br /><a
         href="/products/1/10/desc"
       >Precio Descendente</a></div>
-
   </div>
-
   <div class="filterForm">
-
     <div class="item">
-
-      <p></p>
-
     </div>
-
   </div>
-
   <hr />
 </div>
-
 <div id="boxPagesTop" class="boxPages">
   <div><a href="/products/{{prevPage}}">Atras</a></div>
   <div>Pagina {{page}}</div>
   <div><a href="/products/{{nextPage}}">Siguiente</a></div>
-  <div>Paginas {{totalPages}}</div><div>Total de productos
+  <br />
+  <div id="filterTotalPagesTop" data-total-pages="{{totalPages}}">
+
+  </div>
+  <div>Total de productos
     {{totalDocs}}</div>
+
 </div>
 <br />
 
@@ -56,10 +52,14 @@
   <div><a href="/products/{{prevPage}}">Atras</a></div>
   <div>Pagina {{page}}</div>
   <div><a href="/products/{{nextPage}}">Siguiente</a></div>
-  <div>Paginas {{totalPages}}</div><div>Total de productos
+  <br />
+  <div id="filterTotalPages" data-total-pages="{{totalPages}}">
+
+  </div>
+  <div>Total de productos
     {{totalDocs}}</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
-{{! <script src="/socket.io/socket.io.js"></script> }}
+<script src="/socket.io/socket.io.js"></script>
 <script src="/js/products.js"></script>
