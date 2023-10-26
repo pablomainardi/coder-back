@@ -41,8 +41,9 @@ export class ProductsManagerMongo {
         page: pageNumber || 1,
         limit: limit || 10,
         sort: { price: order === "asc" ? 1 : -1 },
+        lean: true,
       };
-      const result = await this.model.paginate({}, options, { lean: true });
+      const result = await this.model.paginate({}, options);
       // console.log("paginate", result);
       return result;
     } catch (error) {

@@ -13,42 +13,65 @@ router.get("/", async (req, res) => {
   res.render("home");
 });
 //VISTA PRODUCTOS CON PAGINATE
-router.get("/products", async (req, res) => {
-  const dataProducts = await prodService.getProductsPaginate(1, 2);
-  const productsPaginate = dataProducts;
+router.get("/products/:page?/:limit?/:sort?", async (req, res) => {
+  const { page, limit, sort } = req.params;
 
-  res.render("products", { dataProducts: productsPaginate });
-});
+  // Convertir a enteros y comprobar valores válidos
+  const pageNumber = parseInt(page) || 1;
+  const limitNumber = parseInt(limit) || 10;
+  const sortOrder = sort === "desc" ? "desc" : "asc";
 
-router.get("/products/:pageNumber", async (req, res) => {
-  const pageNumber = parseInt(req.params.pageNumber) || 1;
-  const limit = parseInt(req.params.limit) || 10;
-  const order = req.params.order || "asc";
-
-  const dataProducts = await prodService.getProductsPaginate(
+  const result = await prodService.getProductsPaginate(
     pageNumber,
-    limit,
-    order
+    limitNumber,
+    sortOrder
   );
 
-  const filterProducts = dataProducts;
-  res.render("products", { dataProducts: filterProducts });
+  const dataProducts = {
+    status: "success",
+    payload: result.docs,
+    totalDocs: result.totalDocs,
+    limit: result.limit,
+    totalPages: result.totalPages,
+    page: result.page,
+    pagingCounter: result.pagingCounter,
+    hasPrevPage: result.hasPrevPage,
+    hasNextPage: result.hasNextPage,
+    prevPage: result.prevPage,
+    nextPage: result.nextPage,
+  };
+
+  console.log(dataProducts);
+  res.render("products", dataProducts);
 });
 
-router.get("/products/:pageNumber/:limit/:order", async (req, res) => {
-  const pageNumber = parseInt(req.params.pageNumber) || 1;
-  const limit = parseInt(req.params.limit) || 10;
-  const order = req.params.order || "asc";
+// router.get("/products/:pageNumber", async (req, res) => {
+//   const pageNumber = parseInt(req.params.pageNumber) || 1;
+//   const limit = parseInt(req.params.limit) || 10;
+//   const order = req.params.order || "asc";
 
-  const dataProducts = await prodService.getProductsPaginate(
-    pageNumber,
-    limit,
-    order
-  );
+//   const dataProducts = await prodService.getProductsPaginate(
+//     pageNumber,
+//     limit,
+//     order
+//   );
+//   const filterProducts = dataProducts;
+//   res.render("products", { dataProducts: filterProducts });
+// });
 
-  const filterProducts = dataProducts;
-  res.render("products", { dataProducts: filterProducts });
-});
+// router.get("/products/:pageNumber/:limit/:order", async (req, res) => {
+//   const pageNumber = parseInt(req.params.pageNumber) || 1;
+//   const limit = parseInt(req.params.limit) || 10;
+//   const order = req.params.order || "asc";
+//   const dataProducts = await prodService.getProductsPaginate(
+//     pageNumber,
+//     limit,
+//     order
+//   );
+
+//   const filterProducts = dataProducts;
+//   res.render("products", { dataProducts: filterProducts });
+// });
 
 router.get("/realtimeproducts", (req, res) => {
   res.render("realtime");

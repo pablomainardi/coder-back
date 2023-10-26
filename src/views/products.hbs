@@ -5,6 +5,15 @@
     <span><a href="/products/">Todos los productos con Paginate</a></span>
   </div>
   <br />
+
+  <div class="filterproducts">
+    <div class="filterOrder">
+      <a href="/products/1/10/asc">Precio Ascendente</a><br /><a
+        href="/products/1/10/desc"
+      >Precio Descendente</a></div>
+
+  </div>
+
   <div class="filterForm">
 
     <div class="item">
@@ -19,37 +28,36 @@
 </div>
 
 <div id="boxPagesTop" class="boxPages">
-  <div><a href="/products/{{dataProducts.prevPage}}">Atras</a></div>
-  <div>Pagina {{dataProducts.page}}</div>
-  <div><a href="/products/{{dataProducts.nextPage}}">Siguiente</a></div>
-  <div>Paginas {{dataProducts.totalPages}}</div><div>Total de productos
-    {{dataProducts.totalDocs}}</div>
+  <div><a href="/products/{{prevPage}}">Atras</a></div>
+  <div>Pagina {{page}}</div>
+  <div><a href="/products/{{nextPage}}">Siguiente</a></div>
+  <div>Paginas {{totalPages}}</div><div>Total de productos
+    {{totalDocs}}</div>
 </div>
 <br />
 
 <div class="listadoProductos" id="listadoProductos">
 
-  <pre>{{dataProducts.docs}}</pre>
-  {{#each dataProducts.docs}}
+  {{#each payload}}
     <div class="items">
-      <div id="title">{{title}}</div>
-      <div class="imgThumb"><img src="{{thumbnails}}" /></div>
-      <div class="line1">{{description}}</div>
-      <div class="line2">$ {{price}}</div>
-      <div class="line1">Categoria: {{category}}</div>
-      <div class="line2">Stock: {{stock}}</div>
-      <div class="line1">Codigo: {{code}}</div>
-      <div class="line2">ID: {{_id}}</div>
-      <button class="btnAddCart" value="{{_id}}">Agregar al carro</button>
+      <div id="title">{{this.title}}</div>
+      <div class="imgThumb"><img src="{{this.thumbnails}}" /></div>
+      <div class="line1">{{this.description}}</div>
+      <div class="line2">$ {{this.price}}</div>
+      <div class="line1">Categoria: {{this.category}}</div>
+      <div class="line2">Stock: {{this.stock}}</div>
+      <div class="line1">Codigo: {{this.code}}</div>
+      <div class="line2">ID: {{this._id}}</div>
+      <button class="btnAddCart" value="{{this._id}}">Agregar al carro</button>
     </div>
   {{/each}}
 </div>
 <div id="boxPagesBot" class="boxPages">
-  <div><a href="/products/{{dataProducts.prevPage}}">Atras</a></div>
-  <div>Pagina {{dataProducts.page}}</div>
-  <div><a href="/products/{{dataProducts.nextPage}}">Siguiente</a></div>
-  <div>Paginas {{dataProducts.totalPages}}</div><div>Total de productos
-    {{dataProducts.totalDocs}}</div>
+  <div><a href="/products/{{prevPage}}">Atras</a></div>
+  <div>Pagina {{page}}</div>
+  <div><a href="/products/{{nextPage}}">Siguiente</a></div>
+  <div>Paginas {{totalPages}}</div><div>Total de productos
+    {{totalDocs}}</div>
 </div>
 
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
