@@ -7,29 +7,44 @@ import { viewsRouter } from "./routes/views.routes.js";
 import { cartsService, chatService, prodService } from "./dao/index.js";
 // Implementando Socket IO
 import { Server } from "socket.io";
-
+import MongoStore from "connect-mongo";
 // importando funcion base de datos
 import { connectDB } from "./config/dbConnection.js";
 
 import { cartsRouter } from "./routes/carts.routes.js";
 import { productsRouter } from "./routes/products.routes.js";
 import { chatsRouter } from "./routes/chat.routes.js";
-
+import cookieParser from "cookie-parser";
 import { CartManager } from "./dao/cartManager.js";
-
+import session from "express-session";
+import { sessionRouter } from "./routes/session.routes.js";
 //Servidor express
 //Al subirlo a produccion cambiar a: -----
 const port = process.env.PORT || 8080;
 // const port = 8080;
 const app = express();
+
 // Servidor de HTTP
 const httpServer = app.listen(port, () => console.log("Server Funcionando OK"));
 // Server de  Socket IO para Backend
 const io = new Server(httpServer);
 // Conexion base de datos
 connectDB();
-// Integrando proyecto de productos XXXXX
-
+//SESSION con MONGO
+app.use(
+  session({
+    store: MongoStore.create({
+      ttl: 1800,
+      mongoUrl:
+        "mongodb+srv://pablomainardi33:coderback197@pmcluster.yyam796.mongodb.net/ecommerceDB?retryWrites=true&w=majority",
+    }),
+    secret: "coderPass",
+    resave: true,
+    saveUninitialized: true,
+  })
+);
+//cookies
+app.use(cookieParser("cookiePass"));
 app.use(express.static(path.join(__dirname, "/public")));
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -44,7 +59,8 @@ app.use(express.static("public"));
 app.use("/api/carts", cartsRouter);
 app.use("/api/products", productsRouter);
 app.use(viewsRouter);
-app.use(chatsRouter); // routes chat
+app.use(chatsRouter);
+app.use("/api/session", sessionRouter); // routes chat
 //routes}
 
 // arreglo de msg capturados del cliente por el input

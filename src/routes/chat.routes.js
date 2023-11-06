@@ -1,10 +1,16 @@
 import { Router } from "express";
-import { chatService } from "../dao/index.js";
+import { chatService, userService } from "../dao/index.js";
 
 const router = Router();
 
-router.get("/chat", (req, res) => {
-  res.render("chat");
+router.get("/chat", async (req, res) => {
+  if (req.session.userMail) {
+    const userMail = req.session.userMail;
+    const user = await userService.getUserByMail(userMail);
+    res.render("chat", { user });
+  } else {
+    res.render("login");
+  }
 });
 
 // devuelve todos los productos

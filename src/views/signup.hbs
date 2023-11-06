@@ -1,0 +1,35 @@
+<link rel="stylesheet" href="/css/login.css" />
+<h1>SIGNUP</h1>
+<hr />
+<div class="message">
+  <h2 class="done">{{message}}</h2>
+  <h2 class="error">{{error}}</h2>
+</div>
+<hr />
+<div>
+  <form class="signupForm" action="/api/session/signup" method="post">
+    <label for="userName">
+      Nombre:
+      <input type="text" name="userName" id="userName" />
+    </label>
+    <br />
+    <label for="userPass">
+      Password:
+      <input type="password" name="userPass" id="userPass" />
+    </label>
+    <label for="userMail">
+      Mail:
+      <input type="mail" name="userMail" id="userMail" />
+    </label>
+    <label for="userAge">
+      Edad:
+      <input type="text" name="userAge" id="userAge" />
+    </label>
+    <label for="userCountry">
+      País:
+      <input type="text" name="userCountry" id="userCountry" />
+    </label>
+    <br />
+    <button type="submit">Registrarse</button>
+  </form>
+</div>

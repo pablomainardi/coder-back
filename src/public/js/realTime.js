@@ -38,8 +38,8 @@ formAddProd.addEventListener("submit", (e) => {
 
 // Se reciben todos los productos
 socketClient.on("productsAll", (allProd) => {
-  //   console.log(allProd);
-  const productsFull = allProd.docs;
+  // console.log(allProd);
+  const productsFull = allProd;
   let prodListHtml = "";
   productsFull.map((p) => {
     prodListHtml += `<div class="items">

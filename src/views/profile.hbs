@@ -1,0 +1,75 @@
+<link rel="stylesheet" href="/css/profile.css" />
+
+<div class="container">
+  <h1>PERFIL</h1>
+  <div class="profile">
+    <p><span>Nombre:</span> {{user.userName}}</p>
+    <p><span>Id:</span> {{user._id}}</p>
+    <p><span>Mail:</span> {{user.userMail}}</p>
+    <p><span>Edad:</span> {{user.userAge}}</p>
+    <p><span>País:</span> {{user.userCountry}}</p>
+  </div>
+
+  <button onclick="showForm()">Editar</button>
+
+  <div id="showForm" style="display:none;">
+    <form action="/api/session/update" method="POST">
+      <label for="userId">Id:</label>
+      <input
+        type="text"
+        id="userId"
+        name="userId"
+        value="{{user._id}}"
+        readonly
+      /><br /><br />
+      <label for="userName">Nombre:</label>
+      <input
+        type="text"
+        id="userName"
+        name="userName"
+        value="{{user.userName}}"
+        required
+      /><br /><br />
+
+      <label for="userPass">Contraseña:</label>
+      <input
+        type="password"
+        id="userPass"
+        name="userPass"
+        value="{{user.userPass}}"
+        required
+      /><br /><br />
+
+      <label for="userMail">Mail:</label>
+      <input
+        type="email"
+        id="userMail"
+        name="userMail"
+        value="{{user.userMail}}"
+        required
+      /><br /><br />
+
+      <label for="userAge">Edad:</label>
+      <input
+        type="number"
+        id="userAge"
+        name="userAge"
+        value="{{user.userAge}}"
+        required
+      /><br /><br />
+
+      <label for="userCountry">País:</label>
+      <input
+        type="text"
+        id="userCountry"
+        name="userCountry"
+        value="{{user.userCountry}}"
+        required
+      /><br /><br />
+
+      <button type="submit">Actualizar</button>
+    </form>
+  </div>
+</div>
+
+<script src="/js/profile.js"></script>

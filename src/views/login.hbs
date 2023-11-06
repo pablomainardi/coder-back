@@ -1,0 +1,45 @@
+<link rel="stylesheet" href="/css/login.css" />
+<nav>
+<a href="/api/session/signup">Signup</a>
+<a href="/profile">Profile</a>
+<a href="/api/session/logout">Logout</a>
+<a href="/login">Login</a>
+</nav>
+
+<hr />
+
+<div class="loginBox">
+  
+  <h2>LOGIN by Sweetalert</h2>
+    <div id="resSweet"></div>
+    <div id="resSweet2"></div>
+    
+</div>
+
+
+<div class="messageBox">
+ <p class="done">{{message}}</p>
+    <p class="error">{{error}}</p>
+</div>
+  <h2>LOGIN by form</h2>
+  <form class="formLoginFloat" action="/api/session/login" method="post">
+      <label for="userMail">
+        Mail:
+        <input type="mail" name="userMail" id="userMail">
+      </label>
+      <br>
+      <label for="userPass">
+        Password:
+        <input type="password" name="userPass" id="userPass">
+      </label>
+      <br>
+      <button type="submit">Iniciar Session</button>
+    </form>
+</div>
+<hr>
+
+<hr >
+
+<script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+{{! <script src="/socket.io/socket.io.js"></script> }}
+<script src="/js/login.js"></script>

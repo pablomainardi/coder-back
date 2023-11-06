@@ -1,17 +1,52 @@
 import { Router } from "express";
-import { prodService, cartsService } from "../dao/index.js";
+import { prodService, userService, cartsService } from "../dao/index.js";
 
 const router = Router();
 
 //PAGINATE
 router.get("/", async (req, res) => {
-  // const dataProducts = await prodService.getProductsPaginate();
-  // const filterProducts = dataProducts;
-  // console.log("VIEWS-FILTER", filterProducts);
-  // res.render("home", { dataProducts: filterProducts });
-  // console.log("DATAAAPRODUCTSS", dataProducts);
-  res.render("home");
+  if (req.session.userMail) {
+    const userMail = req.session.userMail;
+    const user = await userService.getUserByMail(userMail);
+    res.render("home", { user });
+  } else {
+    res.cookie("productosCookie", "Ofertas").render("login");
+  } //enviamos la cookie
 });
+
+// LOGIN ------------------------------------------------------------------------------------------------------
+
+// router.get("/login", async (req, res) => {
+//   console.log(req.cookies); // traemos las cookies
+//   res
+//     .cookie("userData", { email: "pepe@gmail.com", role: "admin" })
+//     .render("login");
+// });
+// router.get("/signup", async (req, res) => {
+//   res.render("signup");
+// });
+
+router.get("/profile", async (req, res) => {
+  if (req.session.userMail) {
+    const userMail = req.session.userMail;
+    const user = await userService.getUserByMail(userMail);
+    res.render("profile", { user });
+  } else {
+    res.render("login", { message: "Aun no ha iniciado sesion" });
+  }
+});
+
+// router.get("/login/cookie-signed", async (req, res) => {
+//   console.log("signed", req.signedCookies); // traemos las cookies
+//   res
+//     .cookie(
+//       "signed-cookie",
+//       { sitio: "productos.com", type: "sports" },
+//       { signed: true }
+//     )
+//     .render("login");
+// });
+
 //VISTA PRODUCTOS CON PAGINATE
 router.get("/products/:page?/:limit?/:sort?", async (req, res) => {
   const { page, limit, sort } = req.params;
@@ -41,44 +76,28 @@ router.get("/products/:page?/:limit?/:sort?", async (req, res) => {
     nextPage: result.nextPage,
   };
 
-  console.log(dataProducts);
-  res.render("products", dataProducts);
+  // console.log(dataProducts);
+  res.cookie("productosCookie", "Ofertas222").render("products", dataProducts);
 });
 
-// router.get("/products/:pageNumber", async (req, res) => {
-//   const pageNumber = parseInt(req.params.pageNumber) || 1;
-//   const limit = parseInt(req.params.limit) || 10;
-//   const order = req.params.order || "asc";
-
-//   const dataProducts = await prodService.getProductsPaginate(
-//     pageNumber,
-//     limit,
-//     order
-//   );
-//   const filterProducts = dataProducts;
-//   res.render("products", { dataProducts: filterProducts });
-// });
-
-// router.get("/products/:pageNumber/:limit/:order", async (req, res) => {
-//   const pageNumber = parseInt(req.params.pageNumber) || 1;
-//   const limit = parseInt(req.params.limit) || 10;
-//   const order = req.params.order || "asc";
-//   const dataProducts = await prodService.getProductsPaginate(
-//     pageNumber,
-//     limit,
-//     order
-//   );
-
-//   const filterProducts = dataProducts;
-//   res.render("products", { dataProducts: filterProducts });
-// });
-
-router.get("/realtimeproducts", (req, res) => {
-  res.render("realtime");
+router.get("/realtimeproducts", async (req, res) => {
+  if (req.session.userMail) {
+    const userMail = req.session.userMail;
+    const user = await userService.getUserByMail(userMail);
+    res.render("realtime", { user });
+  } else {
+    res.render("login");
+  }
 });
 
-router.get("/carts", (req, res) => {
-  res.render("carts");
+router.get("/carts", async (req, res) => {
+  if (req.session.userMail) {
+    const userMail = req.session.userMail;
+    const user = await userService.getUserByMail(userMail);
+    res.render("carts", { user });
+  } else {
+    res.render("carts");
+  }
 });
 
 //VISTA DE CARRO CON TODOS LOS PRODUCTOS
@@ -107,56 +126,3 @@ router.get("/cartid/:id", async (req, res) => {
 });
 
 export { router as viewsRouter };
-
-// const users = [
-//   {
-//     nombre: "Pepe",
-//     apellido: "perez",
-//     edad: 20,
-//     correo: "pepe@gmail.com",
-//     telefono: "+9287244",
-//   },
-
-//   {
-//     nombre: "Ana",
-//     apellido: "Diaz",
-//     edad: 30,
-//     correo: "ana@gmail.com",
-//     telefono: "+2347682",
-//   },
-
-//   {
-//     nombre: "Maria",
-//     apellido: "gomez",
-//     edad: 35,
-//     correo: "maria@gmail.com",
-//     telefono: "+9817231",
-//   },
-
-//   {
-//     nombre: "Camila",
-//     apellido: "morales",
-//     edad: 18,
-//     correo: "camila@gmail.com",
-//     telefono: "+0297812",
-//   },
-
-//   {
-//     nombre: "Juan",
-//     apellido: "castro",
-//     edad: 27,
-//     correo: "juan@gmail.com",
-//     telefono: "+9827422",
-//   },
-// ];
-
-// router.get("/contact", (req, res) => {
-//   res.render("contact");
-// });
-
-// router.get("/profile", (req, res) => {
-//   const randomNumber = Math.floor(Math.random() * users.length);
-//   const user = users[randomNumber];
-//   console.log("user", user);
-//   res.render("profile", user);
-// });
