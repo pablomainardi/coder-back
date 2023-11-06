@@ -33,14 +33,19 @@ export class ProductsManagerMongo {
   //     throw new Error("No se pudo cargar los productos");
   //   }
   // }
-
   //  PAGINACION
   async getProductsPaginate(pageNumber, limit = 10, order = "asc") {
     try {
+      let sortOrder;
+      if (order === "asc") {
+        sortOrder = 1;
+      } else {
+        sortOrder = -1;
+      }
       const options = {
         page: pageNumber || 1,
         limit: limit || 10,
-        sort: { price: order === "asc" ? 1 : -1 },
+        sort: { price: sortOrder },
         lean: true,
       };
       const result = await this.model.paginate({}, options);
